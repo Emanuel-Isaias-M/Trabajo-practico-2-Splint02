@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://grupo-01:grupo01@cursadanodejs.ls9ii.mongodb.net/node-js')
+mongoose.connect('mongodb+srv://grupo-01:grupo01@cursadanodejs.ls9ii.mongodb.net/Node-js')
 .then(() => console.log('Conexion exitosa a MongoDB'))
 .catch(error => console.error('Error al conectar a MongoDB:' , error));
 
@@ -19,25 +19,23 @@ mongoose.connect('mongodb+srv://grupo-01:grupo01@cursadanodejs.ls9ii.mongodb.net
 
  const SuperHero = mongoose.model('SuperHero', superheroSchema);
 
- async function insetSuperHero() {
+ async function insertSuperHero() {
     const hero = new SuperHero({
-        "nombreSuperHeroe": "Spiderman",
-        "nombreReal": "Peter Parker",
-        "nombreSociedad": "Vigilante",
-        "edad": 25,
-        "planetaOrigen": "Tierra",
-        "debilidad": "Radioactiva",
-        "poderes": ["Trepar paredes","Sentido arácnido","Super fuerza"],
-        "aliado": ["Ironman"],
-        "enemigo": ["Duende Verde"],
-            creador: 'Isaias'
-
-    });
+      "nombreSuperHeroe": "Spiderman",
+      "nombreReal": "Peter Parker",
+      "edad": 25,
+      "planetaOrigen": "Tierra",
+      "debilidad": "Radioactiva",
+      "poderes": ["Trepar paredes", "Sentido arácnido", "Super fuerza"],
+      "aliados": ["Ironman"],
+      "enemigos": ["Duende Verde"],
+        "creador": "Isaias"
+   });
     await hero.save();
     console.log('Superheroe insertado:', hero);
  }
 
- insetSuperHero();
+ insertSuperHero();
 
  async function updateSuperHero(nombreSuperHeroe) {
     const result = await SuperHero.updateOne(
